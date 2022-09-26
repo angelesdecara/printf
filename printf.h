@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:30:12 by angrodri          #+#    #+#             */
-/*   Updated: 2022/09/12 15:43:57 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/09/26 19:05:22 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # include <stdio.h>
 
 void	ft_putnbr_base(int nbr, char *base);
+int		ft_printf(char const *, ...);
 
 #endif
