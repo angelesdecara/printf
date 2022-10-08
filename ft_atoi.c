@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:12:02 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 19:24:28 by angrodri         ###   ########.fr       */
+/*   Created: 2022/06/17 15:25:19 by angrodri          #+#    #+#             */
+/*   Updated: 2022/10/08 16:37:45 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_atoi(const char *str)
 {
-	char		a;
+	int				i;
+	int				len;
+	long long int	res;
 
-	if (n == -2147483648)
+	i = 1;
+	while ((*str > 8 && *str < 14) || *str == 32)
+		str++;
+	if (*str == 43 || *str == 45)
 	{
-		write(fd, "-2", 2);
-		n = 147483648;
+		i *= (1 - *str % 43);
+		str++;
 	}
-	if (n < 0)
+	len = i;
+	i = 0;
+	res = 0;
+	while (*str > 47 && *str < 58)
 	{
-		write(fd, "-", 1);
-		n = (-1) * n;
+		res = (*str - 48) + res * 10;
+		if (res > 2147483647 && len == 1)
+			return (-1);
+		if (res > 2147483648 && len == -1)
+			return (0);
+		str++;
 	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		n = n % 10;
-	}
-	if (n < 10)
-	{
-		a = n + '0';
-		write(fd, &a, 1);
-	}
+	return ((int)(len * res));
 }

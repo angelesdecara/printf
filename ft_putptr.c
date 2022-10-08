@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:46:14 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 17:02:21 by angrodri         ###   ########.fr       */
+/*   Created: 2022/10/08 19:37:25 by angrodri          #+#    #+#             */
+/*   Updated: 2022/10/08 20:12:00 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putptr(unsigned long long ptr)
 {
-	write(fd, &c, 1);
+	write(1, "0x", 2);
+	ft_putnbr_base((uintptr_t)ptr, "0123456789abcdef");
+	return (1);
 }

@@ -6,56 +6,73 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:18:48 by angrodri          #+#    #+#             */
-/*   Updated: 2022/09/29 21:03:57 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/08 20:11:56 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static void	printtype(char type, va_list arg)
+static int	npercent(char const *str)
 {
-	/*
-	 when adding va_arg() the program doesnt link
-	 */
+	size_t	i;
+	size_t	n;
+
+	i = 0;
+	n = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '%')
+		{
+			if (str[i + 1] == '%')
+				i++;
+			else
+			{
+				n += 1;
+			}
+		}
+		i++;
+	}
+	return (n);
+}
+
+int	printtype(char type, va_list arg)
+{
 	if (type == '%')
 		ft_putchar_fd('%', 1);
 	if (type == 'd' || type == 'i')
-		ft_putnbr_fd((int)va_arg(arg, int), 1);
+		ft_putnbr_fd(va_arg(arg, int), 1);
 	if (type == 's')
-		ft_putstr_fd((char *)va_arg(arg, char *), 1);
+		ft_putstr_fd(va_arg(arg, char *), 1);
+	if (type == 'c')
+		ft_putchar_fd(va_arg(arg, int), 1);
+	if (type == 'p')
+		ft_putptr((unsigned long long)va_arg(arg, unsigned long long));
+	return (1);
 }
 
 int	ft_printf(char const *str, ...)
 {
 	va_list	toprint;
 	size_t	i;
+	size_t	n;
 
+	n = npercent(str);
 	va_start(toprint, str);
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] != '%')
-		{
 			write(1, &str[i], 1);
-			i++;
-		}
 		if (str[i] == '%')
 		{
-			if (str[i + 1] == '%')
-				printtype(str[i + 1], toprint);
-				i = i + 2;
-				i++;
+			printtype(str[i + 1], toprint);
+			i++;
 		}
+		i++;
 	/* printf("%d", printf("%.2s\n", (char *)va_arg(toprint, char *)));
 	printf("%d", (int)va_arg(toprint, int));
 	*/
 	}
 	va_end(toprint);
 	return (i);
-}
-
-int	main(void)
-{
-	ft_printf("%s y %d\n", "abc", 3);
-	ft_printf("%% y %d\n",  3);
 }

@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 16:46:14 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 17:02:21 by angrodri         ###   ########.fr       */
+/*   Created: 2022/10/08 16:38:59 by angrodri          #+#    #+#             */
+/*   Updated: 2022/10/08 20:12:02 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "printf.h"
-
-void	ft_putchar_fd(char c, int fd)
+int	main(void)
 {
-	write(fd, &c, 1);
+	int	i;
+	int	*j;
+
+	i = 3;
+	j = &i;
+	printf("%p\n", j );
+	ft_printf("%s y %d + %s\n", "abc",i, "123");
+	ft_printf("\n");
+	ft_printf("%% y %d\n",  3);
+	ft_printf("j = %p\n", j);
 }
