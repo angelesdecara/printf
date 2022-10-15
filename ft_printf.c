@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:18:48 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 20:11:56 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:18:10 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ int	printtype(char type, va_list arg)
 		ft_putstr_fd(va_arg(arg, char *), 1);
 	if (type == 'c')
 		ft_putchar_fd(va_arg(arg, int), 1);
+	if (type == 'u')
+		ft_uint_print(va_arg(arg, unsigned long int));
 	if (type == 'p')
-		ft_putptr((unsigned long long)va_arg(arg, unsigned long long));
+		//ft_putptr((unsigned long long)va_arg(arg, unsigned long long));
+		ft_putptr((unsigned long)va_arg(arg, void *));
 	return (1);
 }
 

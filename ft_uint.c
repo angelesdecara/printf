@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_uint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 19:37:25 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/15 19:49:14 by angrodri         ###   ########.fr       */
+/*   Created: 2022/10/15 20:04:59 by angrodri          #+#    #+#             */
+/*   Updated: 2022/10/15 20:12:01 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putptr(unsigned long long ptr)
+void	ft_uint_print(unsigned int nbr)
 {
-	write(1, "0x", 2);
-	ft_putnbr_base((uintptr_t)ptr, "0123456789abcdef");
-	return (1);
+	char	a;
+
+	if (nbr >= 10)
+	{
+		ft_uint_print(nbr / 10);
+		nbr = nbr % 10;
+	}
+	if (nbr < 10)
+	{
+		a = (int)nbr + '0';
+		write(1, &a, 1);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:30:12 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 19:56:50 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/15 20:11:51 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_atoi(const char *arg);
 int		ft_printf(char const *str, ...);
 char	*ft_itoa(int n);
 int		ft_putptr(unsigned long long ptr);
+void	ft_uint_print(unsigned int nbr);
 
 #endif
