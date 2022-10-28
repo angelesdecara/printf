@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:28:38 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/15 17:48:29 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:52:29 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ static int	testbase(char *base)
 	return (1);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+int	ft_putnbr_base(unsigned long long nbr, char *base)
 {
-	int			len;
-	long int	aux;
+	unsigned long long	len;
+	unsigned long long	aux;
+	int					c;
 
 	len = ft_strlen(base);
 	aux = nbr;
+	c = 0;
 	if (testbase(base) > 0)
 	{
 		if (aux < 0)

@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:38:59 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/15 20:18:05 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:39:07 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@ int	main(void)
 {
 	int	i;
 	int	*j;
+	size_t ptr;
 
 	i = 3;
 	i /= 2;
 	printf("i/=2 =%d\n",i);
 	j = &i;
+	ptr = (size_t)j;
+	ft_putnbr_base(ptr, "0123456789abcdef");
+	printf("\n %zu\n",ptr);
+	printf("\n %p \n",j);
+
 	printf("%p\n", j );
 	ft_printf("%s y %d + %s\n", "abc",i, "123");
 	ft_printf("\n");

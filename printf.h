@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:30:12 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/15 20:11:51 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:37:41 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-void	ft_putnbr_base(int nbr, char *base);
+void	ft_putnbr_base(unsigned long long nbr, char *base);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
