@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:28:38 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/28 17:52:29 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:30:22 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,18 @@ int	ft_putnbr_base(unsigned long long nbr, char *base)
 		{
 			write(1, "-", 1);
 			aux = (-1) * aux;
+			c++;
 		}
 		if (aux < len)
+		{
 			write(1, &base[aux], 1);
+			return (c);
+		}
 		else
 		{
 			ft_putnbr_base(aux / len, base);
 			ft_putnbr_base(aux % len, base);
+			c++;
 		}
 	}
 }
