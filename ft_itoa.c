@@ -6,11 +6,11 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 13:44:28 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 19:15:19 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:44:00 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static unsigned long int	pot10(int n)
 {

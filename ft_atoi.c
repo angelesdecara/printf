@@ -6,11 +6,11 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 15:25:19 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 16:37:45 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:43:50 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_atoi(const char *str)
 {

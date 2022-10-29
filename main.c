@@ -6,35 +6,49 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:38:59 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/28 17:39:07 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 22:09:42 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <limits.h>
-#include "printf.h"
+#include "ft_printf.h"
 int	main(void)
 {
-	int	i;
-	int	*j;
+	long long int	i;
+	long long int	*j;
+	long long int k;
+	long long int *kk;
 	size_t ptr;
+	int	l;
 
-	i = 3;
-	i /= 2;
-	printf("i/=2 =%d\n",i);
+	i = LONG_MAX;
 	j = &i;
+	k = LONG_MIN;
+	kk = &k;
 	ptr = (size_t)j;
-	ft_putnbr_base(ptr, "0123456789abcdef");
-	printf("\n %zu\n",ptr);
-	printf("\n %p \n",j);
 
-	printf("%p\n", j );
-	ft_printf("%s y %d + %s\n", "abc",i, "123");
+	l = -11;
+	printf("%x\n",l);
+	while(l++ <=0)
+		printf("%x\n",l);
+
+
+	ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% ", 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42,-42,-42, -42, 42);
+	printf("\n");
+	printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% ", 'A', "42", 42, 42, 42, 42, 42, 'B', "-42", -42, -42, -42, -42, 42);
+	printf("\n");
+	printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% ", 'A', "42", 42, 42 ,42 , 42, 42);
+	//ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
+
 	ft_printf("\n");
-	ft_printf("%% y %d\n",  3);
-	ft_printf("j = %p\n", j);
-	ft_printf("unsigned %u\n",0);
-	ft_printf("unsigned %u\n",4294967295);
-	//printf("unsigned %u\n",4294967295);
-	//printf("unsigned int longest is %u\n",(unsigned int)UINT_MAX);
+	printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0);
+	ft_printf("\n");
+	ft_printf("\n");
+	ft_printf("........\n");
+	ft_printf("\n");
+	i=ft_printf(" %p %p",j,kk);
+	ft_printf(" %d",i);
+	i=printf(" %p %p",j,kk);
+	printf(" %lld",i);
 }

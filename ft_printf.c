@@ -6,11 +6,11 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:18:48 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/15 20:18:10 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 21:39:46 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	npercent(char const *str)
 {
@@ -37,20 +37,25 @@ static int	npercent(char const *str)
 
 int	printtype(char type, va_list arg)
 {
+	int	n;
+
 	if (type == '%')
-		ft_putchar_fd('%', 1);
+		n = ft_putchar('%');
 	if (type == 'd' || type == 'i')
-		ft_putnbr_fd(va_arg(arg, int), 1);
+		n = ft_putnbr(va_arg(arg, int));
 	if (type == 's')
-		ft_putstr_fd(va_arg(arg, char *), 1);
+		n = ft_putstr(va_arg(arg, char *));
 	if (type == 'c')
-		ft_putchar_fd(va_arg(arg, int), 1);
+		n = ft_putchar(va_arg(arg, int));
 	if (type == 'u')
-		ft_uint_print(va_arg(arg, unsigned long int));
+		n = ft_uint_print(va_arg(arg, unsigned int));
 	if (type == 'p')
-		//ft_putptr((unsigned long long)va_arg(arg, unsigned long long));
-		ft_putptr((unsigned long)va_arg(arg, void *));
-	return (1);
+		n = ft_putptr((unsigned long)va_arg(arg, void *));
+	if (type == 'x')
+		n = ft_putnbr_base(va_arg(arg, int), "0123456789abcdef");
+	if (type == 'X')
+		n = ft_putnbr_base(va_arg(arg, int), "0123456789ABCDEF");
+	return (n);
 }
 
 int	ft_printf(char const *str, ...)
@@ -58,24 +63,26 @@ int	ft_printf(char const *str, ...)
 	va_list	toprint;
 	size_t	i;
 	size_t	n;
+	int		c;
 
 	n = npercent(str);
 	va_start(toprint, str);
 	i = 0;
+	c = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] != '%')
+		{
 			write(1, &str[i], 1);
+			c++;
+		}
 		if (str[i] == '%')
 		{
-			printtype(str[i + 1], toprint);
+			c += printtype(str[i + 1], toprint);
 			i++;
 		}
 		i++;
-	/* printf("%d", printf("%.2s\n", (char *)va_arg(toprint, char *)));
-	printf("%d", (int)va_arg(toprint, int));
-	*/
 	}
 	va_end(toprint);
-	return (i);
+	return (c);
 }

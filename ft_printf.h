@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:30:12 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/29 16:30:39 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:57:28 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-int		ft_putnbr_base(unsigned long long nbr, char *base);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putstr_fd(char *s, int fd);
+int		ft_putnbr_base(long long int nbr, char *base);
+int		ft_putchar(char c);
+int		ft_putnbr(int n);
+int		ft_putstr(char *s);
 int		ft_atoi(const char *arg);
 int		ft_printf(char const *str, ...);
 char	*ft_itoa(int n);
 int		ft_putptr(unsigned long long ptr);
-void	ft_uint_print(unsigned int nbr);
+int		ft_uint_print(unsigned int nbr);
 
 #endif

@@ -6,11 +6,11 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:28:38 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/29 16:30:22 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 20:29:50 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static size_t	ft_strlen(char *s)
 {
@@ -44,10 +44,17 @@ static int	testbase(char *base)
 	return (1);
 }
 
-int	ft_putnbr_base(unsigned long long nbr, char *base)
+static int	negate(long long int *nbr)
 {
-	unsigned long long	len;
-	unsigned long long	aux;
+	write(1, "-", 1);
+	*nbr = (-1) * *nbr;
+	return (1);
+}
+
+int	ft_putnbr_base(long long int nbr, char *base)
+{
+	long long int		len;
+	long long int		aux;
 	int					c;
 
 	len = ft_strlen(base);
@@ -56,21 +63,17 @@ int	ft_putnbr_base(unsigned long long nbr, char *base)
 	if (testbase(base) > 0)
 	{
 		if (aux < 0)
-		{
-			write(1, "-", 1);
-			aux = (-1) * aux;
-			c++;
-		}
+			c += negate(&aux);
 		if (aux < len)
 		{
+			c++;
 			write(1, &base[aux], 1);
-			return (c);
 		}
 		else
 		{
-			ft_putnbr_base(aux / len, base);
-			ft_putnbr_base(aux % len, base);
-			c++;
+			c += ft_putnbr_base(aux / len, base);
+			c += ft_putnbr_base(aux % len, base);
 		}
 	}
+	return (c);
 }

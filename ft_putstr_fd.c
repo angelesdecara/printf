@@ -6,13 +6,13 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 16:50:15 by angrodri          #+#    #+#             */
-/*   Updated: 2022/10/08 17:03:02 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:57:09 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
 	int	i;
 
@@ -21,6 +21,12 @@ void	ft_putstr_fd(char *s, int fd)
 		i = 0;
 		while (*(s + i) != '\0')
 			i++;
-		write (fd, s, i);
+		write (1, s, i);
+		return (i);
+	}
+	else
+	{
+		write (1, "(null)", 6);
+		return (6);
 	}
 }
