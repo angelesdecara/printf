@@ -6,7 +6,7 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 17:28:38 by angrodri          #+#    #+#             */
-/*   Updated: 2022/11/04 21:15:47 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:41:35 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ static int	testbase(char *base)
 	return (1);
 }
 
-int	ft_putnbr_base(unsigned int nbr, char *base)
+int	ft_putnbr_base(unsigned long int nbr, char *base)
 {
 	unsigned int		len;
-	unsigned int		aux;
+	unsigned long int	aux;
 	int					c;
 
 	len = ft_strlen(base);

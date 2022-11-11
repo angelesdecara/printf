@@ -6,13 +6,13 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:37:25 by angrodri          #+#    #+#             */
-/*   Updated: 2022/11/04 21:16:46 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/11/11 13:48:49 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned int ptr)
+int	ft_putptr(unsigned long int ptr)
 {
 	int	n;
 
