@@ -6,39 +6,15 @@
 /*   By: angrodri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 17:18:48 by angrodri          #+#    #+#             */
-/*   Updated: 2022/11/11 13:58:12 by angrodri         ###   ########.fr       */
+/*   Updated: 2022/11/18 19:48:48 by angrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	npercent(char const *str)
-{
-	size_t	i;
-	size_t	n;
-
-	i = 0;
-	n = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '%')
-		{
-			if (str[i + 1] == '%')
-				i++;
-			else
-			{
-				n += 1;
-			}
-		}
-		i++;
-	}
-	return (n);
-}
-
-int	printtype(char type, va_list arg)
+static int	printtype(char type, va_list arg)
 {
 	int	n;
-
 	if (type == '%')
 		n = ft_putchar('%');
 	if (type == 'd' || type == 'i')
@@ -58,14 +34,12 @@ int	printtype(char type, va_list arg)
 	return (n);
 }
 
-int	ft_printf(char const *str, ...)
+int	ft_printf_bonus(char const *str, ...)
 {
 	va_list	toprint;
 	size_t	i;
-	size_t	n;
 	int		c;
 
-	n = npercent(str);
 	va_start(toprint, str);
 	i = 0;
 	c = 0;
